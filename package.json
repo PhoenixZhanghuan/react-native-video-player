@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-video-player",
+        "scope": null,
+        "escapedName": "react-native-video-player",
+        "name": "react-native-video-player",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/zhanghuan/ReactNativeProjects/rcshop-onreact"
+    ]
+  ],
+  "_cnpm_publish_time": 1511169306149,
+  "_from": "react-native-video-player@latest",
+  "_id": "react-native-video-player@0.8.6",
+  "_inCache": true,
+  "_location": "/react-native-video-player",
+  "_nodeVersion": "6.11.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-video-player-0.8.6.tgz_1511169305558_0.23314143624156713"
+  },
+  "_npmUser": {
+    "name": "cornedor",
+    "email": "corne.dorrestijn@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-video-player",
+    "scope": null,
+    "escapedName": "react-native-video-player",
+    "name": "react-native-video-player",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/react-native-video-player/download/react-native-video-player-0.8.6.tgz",
+  "_shasum": "ab68989b214e3a01fb30bc65b37eeacb122716e4",
+  "_shrinkwrap": null,
+  "_spec": "react-native-video-player",
+  "_where": "/Users/zhanghuan/ReactNativeProjects/rcshop-onreact",
+  "author": {
+    "name": "Corné Dorrestijn",
+    "email": "contact@corne.info"
+  },
+  "bugs": {
+    "url": "https://github.com/cornedor/react-native-video-player/issues"
+  },
+  "dependencies": {},
+  "description": "A video player for React Native with controls",
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "ab68989b214e3a01fb30bc65b37eeacb122716e4",
+    "size": 17543726,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/react-native-video-player/download/react-native-video-player-0.8.6.tgz"
+  },
+  "gitHead": "5e8d173752118bfab6cc203e7333dbdff59372cb",
+  "homepage": "https://github.com/cornedor/react-native-video-player#readme",
+  "keywords": [
+    "react-component",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "cornedor",
+      "email": "corne.dorrestijn@gmail.com"
+    }
+  ],
+  "name": "react-native-video-player",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "prop-types": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-vector-icons": ">= 2.1.0",
+    "react-native-video": "^2.0.0"
+  },
+  "publish_time": 1511169306149,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cornedor/react-native-video-player.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.8.6"
+}
