@@ -474,7 +474,8 @@ export default class VideoPlayer extends Component {
           />
         </View>
         {this.renderCenterButton()}
-        {((!this.state.isPlaying) || this.state.isControlsVisible)
+
+        {(this.props.isShowControls && (!this.state.isPlaying || this.state.isControlsVisible))
           ? this.renderControls() : this.renderSeekBar(true)}
       </View>
     );
@@ -482,7 +483,7 @@ export default class VideoPlayer extends Component {
 
   renderCenterButton() {
 
-    const { customStyles } = this.props;
+    const { customStyles, videoWidth, videoHeight } = this.props;
     if(!this.state.isPlaying) {
       return (
         <TouchableOpacity
@@ -496,8 +497,8 @@ export default class VideoPlayer extends Component {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            top: RCC.Color.width * 9/ 32 - 32,
-            left: RCC.Color.width / 2 - 32
+            top:  videoHeight / 2 - 32,
+            left: videoWidth / 2 - 32
           }
           }
           onPress={this.onPlayPress}
