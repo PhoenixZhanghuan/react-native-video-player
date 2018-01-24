@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Image, ImageBackground, Platform, StyleSheet, TouchableOpacity, View, ViewPropTypes } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import Video from 'react-native-video';
 import RCC from "../../app/model/RCConst"; // eslint-disable-line
 
@@ -26,9 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  playArrow: {
-    color: 'white',
-  },
   video: Platform.Version >= 24 ? {} : {
     backgroundColor: 'black',
   },
@@ -40,21 +36,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   playControl: {
-    color: 'white',
     padding: 8,
   },
-  extraControl: {
-    color: 'white',
-    padding: 8,
-  },
+
   seekBar: {
     alignItems: 'center',
     height: 30,
     flexGrow: 1,
     flexDirection: 'row',
     paddingHorizontal: 10,
-    marginLeft: -10,
-    marginRight: -5,
   },
   seekBarFullWidth: {
     marginLeft: 0,
@@ -73,7 +63,7 @@ const styles = StyleSheet.create({
     marginHorizontal: -8,
     marginVertical: -10,
     borderRadius: 10,
-    backgroundColor: '#F00',
+    backgroundColor: '#FF7800',
     transform: [{ scale: 0.8 }],
     zIndex: 1,
   },
@@ -317,10 +307,9 @@ export default class VideoPlayer extends Component {
     const { customStyles } = this.props;
     return (
       <TouchableOpacity
-        style={[styles.playButton, customStyles.playButton]}
         onPress={this.onStartPress}
       >
-        <Icon style={[styles.playArrow, customStyles.playArrow]} name="play-arrow" size={42} />
+        <Image source={require("./images/cenerPlay@2x.png")} style={{width: RCC.Color.px(56), height: RCC.Color.px(56)}}/>
       </TouchableOpacity>
     );
   }
@@ -394,31 +383,27 @@ export default class VideoPlayer extends Component {
       <View style={[styles.controls, customStyles.controls]}>
         <TouchableOpacity
           onPress={this.onPlayPress}
-          style={[customStyles.controlButton, customStyles.playControl]}
+          style={[styles.playControl, customStyles.controlButton, customStyles.playControl]}
         >
-          <Icon
-            style={[styles.playControl, customStyles.controlIcon, customStyles.playIcon]}
-            name={this.state.isPlaying ? 'pause' : 'play-arrow'}
-            size={32}
+          <Image
+            style={[{width: RCC.Color.px(14), height: RCC.Color.px(18)}]}
+            source={this.state.isPlaying ? require("./images/pause@2x.png") : require("./images/play@2x.png")}
           />
         </TouchableOpacity>
         {this.renderSeekBar()}
         {this.props.muted ? null : (
-          <TouchableOpacity onPress={this.onMutePress} style={customStyles.controlButton}>
-            <Icon
-              style={[styles.extraControl, customStyles.controlIcon]}
-              name={this.state.isMuted ? 'volume-off' : 'volume-up'}
-              size={24}
+          <TouchableOpacity onPress={this.onMutePress} style={[styles.playControl, customStyles.controlButton]}>
+            <Image
+              style={[{width: RCC.Color.px(20), height: RCC.Color.px(18)}]}
+              source={this.state.isMuted ? require("./images/volume-off@2x.png") : require("./images/volume-on@2x.png")}
+
             />
           </TouchableOpacity>
         )}
         {(Platform.OS === 'android' || this.props.disableFullscreen) ? null : (
-          <TouchableOpacity onPress={this.onToggleFullScreen} style={customStyles.controlButton}>
-            <Icon
-              style={[styles.extraControl, customStyles.controlIcon]}
-              name="fullscreen"
-              size={32}
-            />
+          <TouchableOpacity onPress={this.onToggleFullScreen} style={[styles.playControl, styles.extraControl,customStyles.controlButton]}>
+
+            <Image source={require("./images/fullScreen-open@2x.png")} style={{width: RCC.Color.px(18), height: RCC.Color.px(18)}}/>
           </TouchableOpacity>
         )}
       </View>
@@ -490,12 +475,6 @@ export default class VideoPlayer extends Component {
           style={
             [customStyles.playButton],
           {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            width: 64,
-            height: 64,
-            borderRadius: 32,
-            justifyContent: 'center',
-            alignItems: 'center',
             position: 'absolute',
             top:  videoHeight / 2 - 32,
             left: videoWidth / 2 - 32
@@ -503,7 +482,7 @@ export default class VideoPlayer extends Component {
           }
           onPress={this.onPlayPress}
         >
-          <Icon style={[styles.playArrow, customStyles.playArrow]} name="play-arrow" size={42} />
+          <Image source={require("./images/cenerPlay@2x.png")} style={{width: RCC.Color.px(56), height: RCC.Color.px(56)}}/>
         </TouchableOpacity>
       );
     }
@@ -561,8 +540,6 @@ VideoPlayer.propTypes = {
     controls: ViewPropTypes.style,
     playControl: TouchableOpacity.propTypes.style,
     controlButton: TouchableOpacity.propTypes.style,
-    controlIcon: Icon.propTypes.style,
-    playIcon: Icon.propTypes.style,
     seekBar: ViewPropTypes.style,
     seekBarFullWidth: ViewPropTypes.style,
     seekBarProgress: ViewPropTypes.style,
@@ -571,7 +548,6 @@ VideoPlayer.propTypes = {
     seekBarBackground: ViewPropTypes.style,
     thumbnail: Image.propTypes.style,
     playButton: TouchableOpacity.propTypes.style,
-    playArrow: Icon.propTypes.style,
   }),
   onEnd: PropTypes.func,
   onProgress: PropTypes.func,
