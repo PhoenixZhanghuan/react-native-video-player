@@ -117,6 +117,13 @@ export default class VideoPlayer extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      isPlaying: nextProps.isPlaying
+    })
+  }
+
+
   componentWillUnmount() {
     if (this.controlsTimeout) {
       clearTimeout(this.controlsTimeout);
