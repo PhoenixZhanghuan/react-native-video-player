@@ -8,7 +8,6 @@ const BackgroundImage = ImageBackground || Image; // fall back to Image if RN < 
 
 const styles = StyleSheet.create({
   preloadingPlaceholder: {
-    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },
